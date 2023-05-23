@@ -14,9 +14,9 @@ contract CharacterSheetNFTs is ERC721, Ownable {
 
     Counters.Counter private _tokenIdCounter;
 
-    constructor() ERC721("Ceptor Club Character Sheet NFTs -test05", "CCCSt05") {}
+    constructor() ERC721("Ceptor Club Character Sheet NFTs -test06", "CCCSt06") {}
 
-    function safeMint(address to) public onlyOwner {
+    function safeMint(address to) public {
         uint256 tokenId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
         _safeMint(to, tokenId);
@@ -55,7 +55,7 @@ contract CharacterSheetNFTs is ERC721, Ownable {
     
 //await contract.methods.setValuesAndMint(cName, cClass, cSpecies, cBackground, cAlignment, cDescr, cPageLink, cIMGURL).send({    
     
-	function setValuesAndMint(string memory _cName, string memory _cClass, string memory _cSpecies, string memory _cBackground, string memory _cAlignment, string memory _cDescr, string memory _cPageLink, string memory _cIMGURL) public onlyOwner{
+	function setValuesAndMint(string memory _cName, string memory _cClass, string memory _cSpecies, string memory _cBackground, string memory _cAlignment, string memory _cDescr, string memory _cPageLink, string memory _cIMGURL) public{
         cName = _cName;
         cClass = _cClass;
         cSpecies = _cSpecies;
