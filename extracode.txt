@@ -63,33 +63,8 @@
 	$skSte = $_POST['skSte'];
 	$skSur = $_POST['skSur'];
 	
-	// API Request
-	$json = '{
-	  "prompt": "DnDDragonborn",
-	  "seed": 10000,
-	  "batch_size": 1,
-	  "n_iter": 1,
-	  "steps": 50,
-	  "cfg_scale": 7,
-	  "width": 512,
-	  "height": 512,
-	  "sampler_index": "Euler a"
-	}';
-
-	$apiEndpoint = 'https://86eh5q7hck6ek4-3000.proxy.runpod.net/sdapi/v1/txt2img';
-
-	// Send request to the API
-	$client = new \GuzzleHttp\Client();
-	$response = $client->post($apiEndpoint, [
-		'body' => $json,
-	]);
-	$data = json_decode($response->getBody(), true);
-	$base64Image = $data['images'][0];
-
-	// Save base64 image to a file
-	$imageData = base64_decode($base64Image);
-	$filename = 'temp_image.jpg';
-	file_put_contents($filename, $imageData);
+	
+	
 
 	$pdf = new FPDF('P','pt','A4');
 	$pdf->AddPage();
@@ -140,7 +115,7 @@
 	//Passive Wisdom
 	$pdf->Text(29,630, $passiveWisdom);
 	
-	//Saving Throws
+	//Saving THrows
 	$pdf->SetFont('Courier','',10);
 	$pdf->Text(111,237, $svThStr);
 	$pdf->Text(111,251, $svThDex);
@@ -178,9 +153,7 @@
 	$pdf->SetFont('Courier','',10);
 	$pdf->MultiCell(118, 13, $characterDescription, ", ",0);
 	
-	// Add generated image
-	$pdf->Image($filename, 10, 10, 150, 150);
-
-	// Output PDF
 	$pdf->Output();
+	
+
 ?>

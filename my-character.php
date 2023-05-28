@@ -278,6 +278,10 @@
 		<input type="hidden" name="skSli" id="skSli" value="<?php echo $skSli; ?>" />
 		<input type="hidden" name="skSte" id="skSte" value="<?php echo $skSte; ?>" />
 		<input type="hidden" name="skSur" id="skSur" value="<?php echo $skSur; ?>" />		
+
+		<!-- Character Avatar Image -->
+		<input type="hidden" name="characterImage" id="characterImage" value="<?php echo $characterImage; ?>" />
+
 	
 	</form>
 	
